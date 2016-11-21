@@ -22,11 +22,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         stopRecordingButton.isEnabled = false
-    }
+            }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear was pressed")
+    
+
     }
 
  
@@ -35,7 +37,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         recordingLabel.text = "Recording in progress"
         stopRecordingButton.isEnabled = true
-        recordingLabel.isEnabled = false
+        recordButton.isEnabled = false
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -57,7 +59,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func stopRecording(_ sender: AnyObject) {
         print("stop recording button was pressed")
-        recordingLabel.isEnabled = true
+    
+        recordButton.isEnabled = true
         stopRecordingButton.isEnabled = false
         recordingLabel.text = "Tap to record"
         audioRecorder.stop()
